@@ -1,0 +1,9 @@
+<div>
+  <label>Name:
+    <input placeholder="serverName" [(ngModel)]="serverName"/>
+  </label>
+  <label>Status:
+    <input placeholder="serverStatus" #status/>
+  </label>
+  <button (click)="onServerAdd(status)">Add Server</button>
+</div>
