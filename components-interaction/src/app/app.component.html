@@ -1,0 +1,8 @@
+<div>
+  <app-add-server (addServer)="onServerAdd($event)"></app-add-server>
+</div>
+<app-display-server
+  *ngFor="let server of servers"
+  [server]="server"
+  (updateStatus)="onStatusUpdate($event)">
+</app-display-server>
