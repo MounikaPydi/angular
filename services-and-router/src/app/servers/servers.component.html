@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let server of servers">
+        <a [routerLink]="['/servers', server.id]">{{server.name}}</a>
+    </li>
+</ul>
+<router-outlet></router-outlet>
