@@ -1,0 +1,19 @@
+<div>
+  <label>title
+    <input placeholder="enter title" #title/>
+  </label>
+  <label>Content
+    <input placeholder="enter content" #content/>
+  </label>
+  <button (click)="onSubmit(title, content)">Submit</button>
+</div>
+<hr>
+<button (click)="onFetch()">Fetch</button>
+<button (click)="onClear()">Clear</button>
+<div>
+  <div *ngFor="let post of posts">
+    <p>Title: {{post.title}}</p>
+    <p>Content: {{post.content}}</p>
+  </div>
+</div>
+<p *ngIf="error">{{error}}</p>
