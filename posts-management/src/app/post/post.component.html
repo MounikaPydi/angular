@@ -1,0 +1,8 @@
+<div *ngIf="post">
+    Post Id: {{post.id}}<br/>
+    User Id: {{post.userId}}<br/>
+    title: {{post.title}}<br/>
+    Body: {{post.body}}<br/>
+<button (click)="onEditPost()">Edit</button>
+<button (click)="onBack()">Back</button>
+</div>

@@ -1,0 +1,14 @@
+<div>
+    <label>Enter User Id for whose posts you want to know</label><br/>
+    <input type="number" placeholder="enter userid" #userId/>
+    <button (click)="onSubmit(userId)">Submit</button>
+    <hr>
+    <div *ngIf="posts">
+        <p>Click on the post to get details and to edit</p>
+        <ol>
+          <li *ngFor="let post of posts">
+            <a [routerLink]="['/post',post.id]">{{post.title}}</a>
+          </li> 
+        </ol>  
+    </div>
+</div>

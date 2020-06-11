@@ -1,0 +1,29 @@
+<form (ngSubmit)="onPostAdd()" #f="ngForm">
+  <div>
+    <label>User Id
+      <input type="number" placeholder="enter user id"
+        ngModel
+        name="userId"
+        #userId="ngModel"/>
+    </label>
+  </div>
+  <div>
+    <label>Title
+      <input placeholder="enter post title"
+        ngModel
+        name="title"
+        #title="ngModel"/>
+    </label>
+  </div>
+  <div>
+    <label>Body
+      <input placeholder="enter post content"
+        ngModel
+        name="body"
+        #body="ngModel"/>
+    </label>
+  </div>
+  <button type="submit">Add Post</button>
+  <div *ngIf="successMessage">{{successMessage}}</div>
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+</form>

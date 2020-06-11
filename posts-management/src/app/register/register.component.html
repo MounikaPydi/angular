@@ -1,0 +1,68 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div>
+      <label>Name
+        <input placeholder="enter Name"
+          ngModel
+          #name="ngModel"
+          name="name"
+          required
+        />
+      </label>
+      <!-- <p>{{name.value}}</p> -->
+      <span *ngIf="!name.valid && name.touched">name must not be empty</span>
+  </div>
+
+  <div ngModelGroup="credentials"
+    #credentials="ngModelGroup">
+    <div>
+      <label>Email
+        <input placeholder="enter email"
+          ngModel
+          required
+          email
+          name="email"
+          #email="ngModel"
+        />
+      </label>
+      <span *ngIf="!email.valid && email.touched">enter valid email</span>
+    </div>
+    <div>
+      <label>Password
+        <input type="password" placeholder="enter paswword"
+          ngModel
+          required
+          name="password"
+          #password="ngModel"
+        />
+      </label>
+      <span *ngIf="!password.valid && password.touched">password is required</span>
+    </div>
+  </div>
+
+  <div>
+    <label>Type of Address
+      <select name="address"
+        ngModel
+        required
+        #address="ngModel">
+        <option value="permanent">Permanent Address</option>
+        <option value="temporary">Temporary Address</option>
+      </select>
+    </label>
+
+    <div *ngIf="address.value" ngModelGroup="contactAddress"
+      #contactAddress="ngModelGroup">
+      <label>City
+        <input placeholder="enter city"/>
+      </label>
+      <label>Landmark
+        <input placeholder="enter landmark"/>
+      </label>
+      <label>Pincode
+        <input placeholder="enter pincode"/>
+      </label>
+    </div>    
+  </div>
+    
+  <button type="submit">Register</button>
+</form>
