@@ -1,0 +1,44 @@
+<div>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label>Name
+      <input placeholder="enter name" (input)="onNameChange($event.target.value)"
+        formControlName="name"/>
+      <span *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">name is required</span>
+    </label>
+
+    <div formGroupName="credentials">
+      <label>User name
+        <input placeholder="enter username"
+          formControlName="userName"/>
+      </label><br/>
+      <span *ngIf="!signupForm.get('credentials.userName').valid && signupForm.get('credentials.userName').touched">
+        <span *ngIf="signupForm.get('credentials.userName').errors['required']">user name is required</span>
+        <span *ngIf="signupForm.get('credentials.userName').errors['nameIsForbidden']">this user name is forbidden</span>
+        <br/></span>
+      <label>Password
+        <input placeholder="enter password"
+          formControlName="password"/>
+      </label>
+    </div>
+
+    <label>Gender
+    <span *ngFor="let gender of genders">
+      <label>
+        <input type="radio" [value]="gender" formControlName="gender">{{gender}}
+      </label>
+    </span></label><br/>
+
+    <div formArrayName="courses">
+      <h5>Your Courses</h5>
+      <div *ngFor="let course of signupForm.get('courses')['controls']; let i = index">
+        <input placeholder="enter course" [formControlName]="i"/>
+        <span *ngIf="!signupForm.get('courses')['controls'][i].valid && signupForm.get('courses')['controls'][i].touched">enter course</span>
+      </div>
+      <button (click)="onAddCourse()" type="button">Add Course</button>
+    </div>
+
+    <!-- <p>{{signupForm.value.name}}</p> -->
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

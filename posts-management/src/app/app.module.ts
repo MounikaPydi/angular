@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -11,6 +12,7 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { PostComponent } from './post/post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { PostsByUserComponent } from './posts-by-user/posts-by-user.component';
+import { RegisterUsingReactiveFormsComponent } from './register-using-reactive-forms/register-using-reactive-forms.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,7 +20,8 @@ const appRoutes: Routes = [
   {path: 'addPost', component: AddPostComponent},
   {path: 'post/:id', component: PostComponent},
   {path: 'post/:id/edit', component: EditPostComponent},
-  {path: 'byUser', component: PostsByUserComponent}
+  {path: 'byUser', component: PostsByUserComponent},
+  {path: 'signup', component: RegisterUsingReactiveFormsComponent}
 ];
 
 @NgModule({
@@ -29,13 +32,15 @@ const appRoutes: Routes = [
     AddPostComponent,
     PostComponent,
     EditPostComponent,
-    PostsByUserComponent
+    PostsByUserComponent,
+    RegisterUsingReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
