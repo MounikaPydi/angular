@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/">5 days</a></li>
+      <li><a routerLink="charts">charts</a></li>
+    </ul>
+    <!-- <input placeholder="enter city"/>
+    <button (click)="onCitySubmit()" type="button">Get Report</button> -->
+    <div class="search-city">
+      <input type="text" #city/>
+      <button type="button" (click)="onCitySubmit(city)">Get Report</button>
+    </div>
+  </div>
+  <p>{{cityName}}</p>
+</nav>
+<router-outlet></router-outlet>

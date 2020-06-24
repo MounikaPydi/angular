@@ -1,0 +1,31 @@
+<p>this is home component</p>
+<div *ngIf="weatherData">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Temperature</th>
+        <th>Description</th>
+        <th>Temp-min</th>
+        <th>Temp-max</th>
+        <th>Pressure</th>
+        <th>Sea level</th>
+        <th>Humidity</th>
+        <th>Wind-Speed</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let weath of weatherData.list">
+      <tr>
+        <td>{{weath.dt_txt}}</td>
+        <td>{{weath.main.temp}}</td>
+        <td><img class="text-center" src= "http://openweathermap.org/img/w/{{weath.weather[0].icon}}.png"/>{{weath.weather[0].description}}</td>
+        <td>{{weath.main.temp_min}}</td>
+        <td>{{weath.main.temp_max}}</td>
+        <td>{{weath.main.pressure}}</td>
+        <td>{{weath.main.sea_level}}</td>
+        <td>{{weath.main.humidity}}</td>
+        <td>{{weath.wind.speed}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
