@@ -12,24 +12,35 @@ export class AppComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) {}
 
+  // ngOnInit() {
+  //   this.weatherService.fetchCityWeather('hyderabad')
+  //     .subscribe(response => {
+  //       this.weatherData = response;
+  //       console.log(response);
+  //       this.weatherService.setWeatherData(response);
+  //     });
+  // }
+
+
   ngOnInit() {
-    this.weatherService.fetchCityWeather('hyderabad')
-      .subscribe(response => {
-        this.weatherData = response;
-        console.log(response);
-        this.weatherService.setWeatherData(response);
-      });
+    console.log('calling ngoninit of app component');
+    this.weatherService.fetchCityWeather('hyderabad');
   }
 
-  onCitySubmit(city) {
-    this.weatherService.fetchCityWeather(city.value)
-    .subscribe(response => {
-      this.weatherData = response;
-      console.log(response);
-      this.cityName = city.value;
-      this.weatherService.setWeatherData(response);
-    }, error => {
-      console.log(error);
-    });
-  }
+//   onCitySubmit(city) {
+//     this.weatherService.fetchCityWeather(city.value)
+//     .subscribe(response => {
+//       this.weatherData = response;
+//       console.log(response);
+//       this.cityName = city.value;
+//       this.weatherService.setWeatherData(response);
+//     }, error => {
+//       console.log(error);
+//     });
+//   }
+// }
+
+onCitySubmit(city) {
+  this.weatherService.fetchCityWeather(city.value);
+}
 }

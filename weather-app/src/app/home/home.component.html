@@ -1,5 +1,8 @@
-<p>this is home component</p>
-<div *ngIf="weatherData">
+<div *ngIf="!hasWeatherData">
+{{errorMessage}}
+</div>
+<div *ngIf="hasWeatherData && weatherData">
+  <p>{{weatherData.city.name}}</p>
   <table class="table">
     <thead>
       <tr>

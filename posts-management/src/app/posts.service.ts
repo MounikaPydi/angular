@@ -13,6 +13,7 @@ export class PostsService {
   }
 
   getPost(id: number){
+    console.log('in posts service');
     return this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
   }
 
